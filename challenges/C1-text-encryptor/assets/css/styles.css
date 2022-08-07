@@ -1,0 +1,153 @@
+@font-face {
+  font-family: 'Mad Hacker';
+  src: url('../fonts/Mad_Hacker.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Mad Hacker Italic';
+  src: url('../fonts/Mad_Hacker_Italic.otf') format('opentype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --madHacker-font: 'Mad Hacker';
+  --italicMadHacker-font: 'Mad Hacker Italic';
+
+  --green-color: #149414;
+  --black-background: #111;
+  --footer-background: #2b5329;
+}
+
+body {
+  background-color: var(--black-background);
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100px;
+  width: 100%;
+}
+
+#header #title {
+  color: var(--green-color);
+  font-family: var(--madHacker-font);
+}
+
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  max-width: 70%;
+  width: 100%;
+  height: 450px;
+  margin: 0 auto;
+  padding-inline: 10px;
+}
+
+#main .decoder {
+  width: 60%;
+}
+
+#main .decoder #form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#main .decoder #decoder-data {
+  background-color: var(--black-background);
+  border: none;
+  display: block;
+
+  font-size: 30px;
+  resize: none;
+}
+
+#form .warning-container #warning {
+  margin-left: 5px;
+}
+
+#main .decoder .decoder-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+#main .decoder-button {
+  background-color: var(--footer-background);
+  border-radius: 10px;
+  border: 1px solid #999;
+
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 25px;
+
+  cursor: pointer;
+  opacity: .9;
+}
+
+#main .decoder-button:hover {
+  opacity: 1;
+}
+
+#main .decoder-button:active {
+  transition: transform .3s ease;
+  transform: scale(1.2);
+}
+
+#main .results-container {
+  background-color: var(--black-background);
+  box-shadow: 0px 0px 29px 0px var(--green-color);
+  border-radius: 10px;
+
+  width: 40%;
+  height: 250px;
+}
+
+.results-container #results {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.results-container #results-data {
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+
+  width: 100%;
+  margin-bottom: 45%;
+  cursor: default;
+}
+
+#footer {
+  background-color: var(--footer-background);
+  
+  width: 100%;
+  padding-block: 10px;
+  
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+
+#footer p {
+  font-family: var(--italicMadHacker-font);
+}

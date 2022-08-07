@@ -1,5 +1,0 @@
-Modelo do projeto:
-https://www.figma.com/file/tvFEYhVfZTjdJ5P24RGV21/Alura-Challenge---Desafio-1---L%C3%B3gica?node-id=0%3A1
-
-Trello do desafio:
-https://trello.com/b/EmUFmjCv/decodificador-de-textos-alura-challenges-oracle-one
