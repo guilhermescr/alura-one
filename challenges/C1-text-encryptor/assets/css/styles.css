@@ -170,11 +170,16 @@ body {
   #main {
     flex-direction: column;
     gap: 30px;
-    margin-bottom: 10%;
+    margin-bottom: 20%;
   }
 
   #main .decoder {
     width: 100%;
+  }
+
+  #form .warning-container #warning {
+    margin: 0;
+    text-align: center;
   }
 
   #main .decoder .decoder-buttons {
