@@ -20,7 +20,6 @@
             <textarea
               id="decoder-data"
               spellcheck="false"
-              cols="28"
               rows="4"
               placeholder="Insert a text to encrypt/decrypt"
             ></textarea>
@@ -41,7 +40,11 @@
               Decrypt
             </button>
 
-            <button type="submit" id="clearDecoderDataBtn" class="decoder-button">
+            <button
+              type="submit"
+              id="clearDecoderDataBtn"
+              class="decoder-button"
+            >
               Clear
             </button>
           </div>
@@ -50,7 +53,13 @@
 
       <div class="results-container">
         <form id="results">
-          <textarea id="results-data" cols="10" rows="3" placeholder="Nothing so far..." readonly></textarea>
+          <textarea
+            id="results-data"
+            cols="10"
+            rows="3"
+            placeholder="Nothing so far..."
+            readonly
+          ></textarea>
 
           <div class="results-buttons">
             <button type="submit" class="decoder-button" id="copyTextBtn">
