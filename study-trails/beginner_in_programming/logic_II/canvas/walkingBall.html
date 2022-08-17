@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controlling The Walking Ball</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+      }
+
+      .game {
+        background-color: orange;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 50px;
+        height: 100vh;
+      }
+
+      canvas {
+        width: 50%;
+      }
+
+      #scoreboard {
+        background-color: #121212;
+        color: #fff;
+        height: 35%;
+        width: 35%;
+        padding-top: 20px;
+        text-align: center;
+      }
+
+      #score {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        gap: 20px;
+        padding-top: 30px;
+        font-size: 1.5em;
+      }
+
+      #you_points, #unknown_player_points {
+          color: orangered;
+      }
+
+      @media (max-width: 600px) {
+        .game {
+          gap: 0;
+        }
+
+        canvas {
+          width: 90%;
+          height: 25%;
+        }
+
+        #scoreboard {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="game">
+      <canvas width="1000" height="400"></canvas>
+
+      <section id="scoreboard">
+        <h2 id="score-title">SCOREBOARD</h2>
+        <article id="score">
+          <p id="you">You: <span id="you_points">0</span></p>
+          <p id="unknown_player">Unknown Player: <span id="unknown_player_points">0</span></p>
+        </article>
+      </section>
+    </main>
+    
+
+    <script>
+      var screen = document.querySelector('canvas');
+      var paintBrush = screen.getContext('2d');
+
+      let x = 20;
+      let y = 370;
+
+      // key codes
+      let left = 37;
+      let up = 38;
+      let right = 39;
+      let down = 40;
+
+      let rate = 20;
+
+      let youPointsElement = document.getElementById("you_points");
+      let youPoints = Number(youPointsElement.innerHTML);
+
+      function resetBallPosition() {
+        x = 20;
+        y = 370;
+        drawCircle(x, y, 10);
+      }
+
+      function paintCanvas() {
+        // background
+        paintBrush.fillStyle = 'cyan';
+        paintBrush.fillRect(0, 0, 1000, 400);
+
+        // grass
+        paintBrush.fillStyle = 'green';
+        paintBrush.fillRect(0, 380, 1000, 400);
+
+        // bars color
+        paintBrush.fillStyle = 'white';
+
+        // vertical bar
+        paintBrush.fillRect(850, 100, 20, 280);
+
+        // diagonal bar
+        paintBrush.beginPath();
+        paintBrush.moveTo(850, 100);
+        paintBrush.lineTo(870, 90);
+        paintBrush.lineTo(1000, 380);
+        paintBrush.lineTo(980, 380);
+        paintBrush.fill();
+      }
+
+      function drawCircle(x, y, radius) {
+        paintBrush.fillStyle = 'black';
+        paintBrush.beginPath();
+        paintBrush.arc(x, y, radius, 0, 2 * Math.PI);
+        paintBrush.fill();
+      }
+
+      function clearScreen() {
+        paintBrush.clearRect(0, 0, 1000, 400);
+        paintCanvas();
+      }
+
+      function updateScreen() {
+        clearScreen();
+        drawCircle(x, y, 10);
+      }
+
+      setInterval(updateScreen, 20);
+
+      function keyPress(event) {
+        if (event.keyCode == up) {
+          y -= rate;
+        }
+
+        if (event.keyCode == down && y < 370) {
+          y += rate;
+        }
+
+        if (event.keyCode == left) {
+          x -= rate;
+        }
+
+        if (event.keyCode == right) {
+          x += rate;
+        }
+
+        isGoal();
+      }
+
+      function isGoal() {
+        if (x >= 890 && y >= 160) {
+          alert("GOAL SCORED!");
+          youPoints++;
+          youPointsElement.innerHTML = youPoints;
+          resetBallPosition();
+        }
+        return;
+      }
+
+      document.onkeydown = keyPress;
+      paintCanvas();
+    </script>
+  </body>
+</html>

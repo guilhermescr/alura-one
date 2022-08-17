@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canada Flag With Canvas</title>
+  <style>
+    canvas:hover {
+      transition: .3s ease-in-out;
+      opacity: 0.7;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="600" height="400"></canvas>
+  
+  <script>
+    let screen = document.querySelector("canvas");
+    let paintBrush = screen.getContext("2d");
+
+    function drawBorder() {
+      paintBrush.fillStroke = "black";
+      paintBrush.strokeRect(0, 0, 600, 400);
+    }
+
+    paintBrush.fillStyle = "red";
+    paintBrush.fillRect(0, 0, 600, 400);
+
+    paintBrush.fillStyle = "white";
+    paintBrush.fillRect(140, 0, 320, 400);
+
+    paintBrush.fillStyle = "red";
+    paintBrush.beginPath();
+    paintBrush.moveTo(210, 300);
+    paintBrush.lineTo(300, 80);
+    paintBrush.lineTo(400, 300);
+    paintBrush.lineTo(310, 280);
+    paintBrush.fill();
+
+    // leaf sheath - bainha da folha
+    paintBrush.beginPath();
+    paintBrush.moveTo(305, 200);
+    paintBrush.lineTo(300, 380);
+    paintBrush.lineTo(315, 380);
+    paintBrush.fill();
+
+    drawBorder();
+  </script>
+</body>
+</html>

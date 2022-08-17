@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Circle</title>
+</head>
+<body>
+  <canvas width="600" height="400"></canvas>
+
+  <script>
+    var screen = document.querySelector('canvas');
+    var paintBrush = screen.getContext('2d');
+    paintBrush.fillStyle = 'lightgray';
+    paintBrush.fillRect(0, 0, 600, 400);
+
+    function drawCircle(x, y, radius) {
+      paintBrush.fillStyle = 'blue';
+      paintBrush.beginPath();
+      paintBrush.arc(x, y, radius, 0, 2 * Math.PI);
+      paintBrush.fill();
+    }
+
+    function clearScreen() {
+      paintBrush.clearRect(0, 0, 600, 400);
+    }
+
+    let x = 20;
+
+    let direction = 1;
+
+    function updateScreen() {
+      clearScreen();
+
+      if (x > 600) {
+        direction = -1;
+      }
+      if (x < 0) {
+        direction = 1;
+      }
+
+      drawCircle(x, 20, 10);
+      x += direction;
+    }
+
+    setInterval(updateScreen, 10);
+  </script>
+</body>
+</html>

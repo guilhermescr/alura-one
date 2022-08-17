@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas</title>
+  <style>
+    * {
+      user-select: none;
+    }
+
+    body {
+      margin: 0 auto;
+      padding-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="600" height="400"></canvas>
+
+  <script defer>
+    let screen = document.querySelector("canvas");
+    let paintBrush = screen.getContext("2d");
+
+    paintBrush.fillStyle = "lightgray";
+    paintBrush.fillRect(0, 0, 600, 400);
+
+    let radius = 10;
+    let rightClicks = 1;
+
+    function drawCircle(x, y, radius, color) {
+      paintBrush.fillStyle = color;
+      paintBrush.beginPath();
+      paintBrush.arc(x, y, radius, 0, 2 * Math.PI);
+      paintBrush.fill();
+    }
+
+    function showCircle() {
+      x = Math.round(Math.random() * 600);
+      y = Math.round(Math.random() * 400);
+      drawCircle(x,y, radius + 20, 'red');
+      drawCircle(x,y, radius + 10, 'white');
+      drawCircle(x,y, radius, 'red');
+    }
+
+    function clearScreen() {
+      paintBrush.fillStyle = "lightgray";
+      paintBrush.fillRect(0, 0, 600, 400);
+    }
+
+    function showWinnerMessage() {
+      msg.innerHTML = "<br> YOU WON!";
+    }
+
+    function start(event) {
+      if (rightClicks > 5) {
+        clearScreen();
+        showWinnerMessage();
+        return;
+      }
+      showCircle();
+
+      let x = event.pageX - screen.offsetLeft;
+      let y = event.pageY - screen.offsetTop;
+
+      if (x > x - radius && x < x + radius && y > y - radius && y < y + radius) {
+        rightClicks++;
+        clearScreen();
+        showCircle();
+      }
+    }
+
+    screen.onclick = start;
+    let msg = document.createElement("h2");
+    msg.innerHTML = "<br> CLICK ON THE GRAY AREA TO START!";
+    document.body.appendChild(msg);
+  </script>
+</body>
+</html>
