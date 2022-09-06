@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: black url('../images/plains_and_river.jpg') no-repeat center fixed;
+  background-size: cover;
+  font-size: 18px;
+  height: 100%;
+  text-align: center;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+canvas {
+  background-image: linear-gradient(#9DAEBE, #BDB5B3, #B59191, #666585);
+  color: #fff;
+  border: #fff dashed 2px;
+  padding: 15px;
+}
+
+h1,
+h2,
+h3 {
+  font: normal 100 'Roboto', sans-serif;
+  margin: 5px 0;
+}
+
+h1 {
+  font-size: 2.6em;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+.alphabetButtonJS {
+  background-color: #00756b;
+  border-radius: 5px;
+  border: solid 1px white;
+  color: white;
+  width: 35px;
+  height: 35px;
+  margin: 0 10px 10px 0;
+  outline: none;
+}
+.alphabetButtonJS:hover {
+  transition: 0.5s;
+  background: white;
+  border: solid 1px white;
+  color: #00756b;
+}
+
+.selected {
+  background-color: #fff;
+  border: 1px solid #f00;
+  color: #00756b;
+}
+
+.btn-2 {
+  background-color: #00756b;
+  border: 1px solid #1b9e1b;
+  border-radius: 20px;
+  color: #fff;
+
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn-2:hover {
+  background-color: #fff;
+  color: #00756b;
+  transition: 0.5s;
+  font-weight: bold;
+}
