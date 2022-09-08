@@ -1,11 +1,13 @@
 import { root } from "../App.js";
 
 function Home() {
-  function renderWelcomeMessage() {
-    const welcome_container = document.createElement('div');
-    welcome_container.classList.add('welcome_container');
+  root.innerHTML = '';
+  
+  function renderWelcomeContainer() {
+    const WELCOME_CONTAINER = document.createElement('div');
+    WELCOME_CONTAINER.classList.add('welcome_container');
 
-    welcome_container.innerHTML = `
+    WELCOME_CONTAINER.innerHTML = `
     <h1>Hangman Game</h1>
     <p>Welcome to Hangman Game! Before we start, please, tell me your name:</p>
     <form id="usernameForm">
@@ -14,9 +16,9 @@ function Home() {
     </form>
     `;
 
-    root.appendChild(welcome_container);
+    root.appendChild(WELCOME_CONTAINER);
   }
-  renderWelcomeMessage();
+  renderWelcomeContainer();
 
   const USERNAME_FORM = document.querySelector('#usernameForm');
   const USERNAME_INPUT = document.querySelector('#usernameInput');
