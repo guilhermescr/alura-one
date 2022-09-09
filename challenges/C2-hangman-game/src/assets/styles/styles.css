@@ -16,6 +16,17 @@ body, #root {
   text-align: center;
 }
 
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+canvas {
+  padding-top: 20px;
+  width: fit-content;
+  height: 60%;
+}
+
 .modes__item {
   cursor: pointer;
   max-width: max-content;

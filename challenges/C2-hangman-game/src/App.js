@@ -1,5 +1,6 @@
 import Home from './modules/Home.mjs';
 import ChooseMode from './modules/ChooseMode.mjs';
+import DRAW_PARTS from './modules/DrawGallows.mjs';
 
 const root = document.getElementById('root');
 // Words API:
@@ -8,7 +9,7 @@ const root = document.getElementById('root');
 
 function App() {
   // Home();
-  ChooseMode();
+  // ChooseMode();
 }
 
 function addListeners() {
@@ -20,13 +21,17 @@ function addListeners() {
 }
 
 document.body.onload = App();
-root.onclick = addListeners;
+//root.onclick = addListeners;
 
 /*
-const screenCanvas = document.getElementById('screen');
-const pencil = screenCanvas.getContext('2d');
-pencil.fillRect(0, 0, 400, 400);
-console.log(pencil);
+const {drawGallowsStructure, drawHead, drawBody, drawRightArm, drawLeftArm, 
+      drawRightLeg, drawLeftLeg, drawDeadFace} = DRAW_PARTS;
 */
+const DRAW_METHODS = Object.values(DRAW_PARTS);
+let timer = 1000;
+for (let index = 0; index < DRAW_METHODS.length; index++) {
+  setTimeout(DRAW_METHODS[index], timer);
+  timer += 1000;
+}
 
 export { root };
