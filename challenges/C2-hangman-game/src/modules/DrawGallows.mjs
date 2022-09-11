@@ -1,7 +1,7 @@
 import { root } from "../App.js";
 
-const screenCanvas = document.getElementById('screen');
-const pencil = screenCanvas.getContext('2d');
+const gallowsCanvas = document.getElementById('gallows');
+const pencil = gallowsCanvas.getContext('2d');
 
 function drawEyes() {
   // left eye

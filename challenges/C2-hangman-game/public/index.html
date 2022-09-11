@@ -9,7 +9,23 @@
   </head>
   <body>
     <div id="root">
-      <canvas id="screen" width="400" height="400"></canvas>
+      <div class="random_word_container">
+        <div id="gallows_container">
+          <canvas id="gallows" width="400" height="200"></canvas>
+        </div>
+
+        <div class="guess_word_container">
+          <canvas id="letters" width="1200" height="800"></canvas>
+
+          <div class="word_form_container">
+            <form id="wordForm">
+              <label for="wordEntry">Try a letter</label>
+              <input type="text" id="wordEntry" placeholder="I.e.: F" />
+              <button type="submit" id="submitWordButton">Guess</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script type="module" src="../src/App.js"></script>

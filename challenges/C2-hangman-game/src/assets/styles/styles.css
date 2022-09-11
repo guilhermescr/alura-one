@@ -18,13 +18,37 @@ body, #root {
 
 #root {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+form * {
+  width: 50%;
+}
+
 canvas {
-  padding-top: 20px;
-  width: fit-content;
+  max-width: 300px;
+  width: 100%;
   height: 60%;
+}
+
+.random_word_container {
+  padding-inline: 10px;
+}
+
+#letters {
+  background-color: #303030;
+  max-width: 600px;
+  width: 100%;
+  height: 200px;
 }
 
 .modes__item {
