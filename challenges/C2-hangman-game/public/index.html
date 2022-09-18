@@ -8,26 +8,26 @@
     <title>Hangman Game</title>
   </head>
   <body>
-    <div id="root">
-      <div class="random_word_container">
-        <div id="gallows_container">
-          <canvas id="gallows" width="400" height="200"></canvas>
-        </div>
+    <div class="wrapper">
+      <h1>Hangman Game</h1>
+      <p>Use the alphabet below to guess the word</p>
+    </div>
 
-        <div class="guess_word_container">
-          <canvas id="letters" width="1200" height="800"></canvas>
-
-          <div class="word_form_container">
-            <form id="wordForm">
-              <label for="wordEntry">Try a letter</label>
-              <input type="text" id="wordEntry" placeholder="I.e.: F" />
-              <button type="submit" id="submitWordButton">Guess</button>
-            </form>
-          </div>
-        </div>
+    <div class="wrapper">
+      <div class="alphabetButton" id="alphabetButtons"></div>
+      <p id="categoryName"></p>
+      <div id="hold"></div>
+      <p id="mylives"></p>
+      <p id="clue">Clue -</p>
+      <canvas id="stickman"
+        >This Text will show if the Browser does NOT support HTML5 Canvas tag
+      </canvas>
+      <div class="container">
+        <button class="btn-2" id="hint">Hint</button>
+        <button class="btn-2" id="reset">Play again</button>
       </div>
     </div>
 
-    <script type="module" src="../src/App.js"></script>
+    <script src="../src/scripts.js"></script>
   </body>
 </html>
