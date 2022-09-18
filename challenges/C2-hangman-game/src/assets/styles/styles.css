@@ -44,6 +44,12 @@ p {
   font-size: 1.2em;
 }
 
+canvas {
+  padding-top: 20px;
+  width: fit-content;
+  height: 60%;
+}
+
 .alphabetButtonJS {
   background-color: #00756b;
   border-radius: 5px;

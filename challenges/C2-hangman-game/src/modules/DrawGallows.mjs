@@ -1,104 +1,107 @@
-import { root } from "../App.js";
-
-const gallowsCanvas = document.getElementById('gallows');
-const pencil = gallowsCanvas.getContext('2d');
+const GALLOWS_CANVAS = document.getElementById('gallows');
+const PENCIL = GALLOWS_CANVAS.getContext('2d');
 
 function drawEyes() {
   // left eye
-  pencil.beginPath();
-  pencil.moveTo(180, 50);
-  pencil.lineTo(182, 50);
-  pencil.lineTo(188, 56);
-  pencil.lineTo(186, 56);
-  pencil.fill();
-  pencil.beginPath();
-  pencil.moveTo(188, 50);
-  pencil.lineTo(186, 50);
-  pencil.lineTo(180, 56);
-  pencil.lineTo(182, 56);
-  pencil.fill();
+  PENCIL.beginPath();
+  PENCIL.moveTo(180, 50);
+  PENCIL.lineTo(182, 50);
+  PENCIL.lineTo(188, 56);
+  PENCIL.lineTo(186, 56);
+  PENCIL.fill();
+  PENCIL.beginPath();
+  PENCIL.moveTo(188, 50);
+  PENCIL.lineTo(186, 50);
+  PENCIL.lineTo(180, 56);
+  PENCIL.lineTo(182, 56);
+  PENCIL.fill();
 
   // right eye
-  pencil.beginPath();
-  pencil.moveTo(190, 50);
-  pencil.lineTo(192, 50);
-  pencil.lineTo(198, 56);
-  pencil.lineTo(196, 56);
-  pencil.fill();
-  pencil.beginPath();
-  pencil.moveTo(198, 50);
-  pencil.lineTo(196, 50);
-  pencil.lineTo(190, 56);
-  pencil.lineTo(192, 56);
-  pencil.fill();
+  PENCIL.beginPath();
+  PENCIL.moveTo(190, 50);
+  PENCIL.lineTo(192, 50);
+  PENCIL.lineTo(198, 56);
+  PENCIL.lineTo(196, 56);
+  PENCIL.fill();
+  PENCIL.beginPath();
+  PENCIL.moveTo(198, 50);
+  PENCIL.lineTo(196, 50);
+  PENCIL.lineTo(190, 56);
+  PENCIL.lineTo(192, 56);
+  PENCIL.fill();
 }
 
 function drawMouth() {
-  pencil.lineWidth = 2;
-  pencil.beginPath();
-  pencil.arc(189, 63, 3, 0, Math.PI * 2);
-  pencil.stroke();
+  PENCIL.lineWidth = 2;
+  PENCIL.beginPath();
+  PENCIL.arc(189, 63, 3, 0, Math.PI * 2);
+  PENCIL.stroke();
 }
 
 const DRAW_PARTS = {
   drawGallowsStructure: function() {
-    pencil.fillStyle = 'black';
+    PENCIL.fillStyle = 'black';
     // vertical line ->
-    pencil.fillRect(100, 0, 2, 200);
+    PENCIL.fillRect(100, 0, 2, 200);
     // horizontal line ->
-    pencil.fillRect(100, 0, 90,2);
+    PENCIL.fillRect(100, 0, 90,2);
     // head rope ->
-    pencil.fillRect(188, 2, 2, 40);
+    PENCIL.fillRect(188, 2, 2, 40);
   },
   drawHead: function() {
-    pencil.fillStyle = '#ffe0bd';
-    pencil.lineWidth = 4;
+    PENCIL.fillStyle = '#ffe0bd';
+    PENCIL.lineWidth = 4;
 
-    pencil.beginPath();
-    pencil.arc(189, 57, 15, 0, Math.PI * 2);
-    pencil.stroke();
-    pencil.fill();
+    PENCIL.beginPath();
+    PENCIL.arc(189, 57, 15, 0, Math.PI * 2);
+    PENCIL.stroke();
+    PENCIL.fill();
   },
   drawBody: function() {
-    pencil.fillStyle = 'black';
-    pencil.fillRect(188, 72, 2, 70);
+    PENCIL.fillStyle = 'black';
+    PENCIL.fillRect(188, 72, 2, 70);
   },
   drawRightArm: function() {
-    pencil.beginPath();
-    pencil.moveTo(188, 72);
-    pencil.lineTo(190, 72);
-    pencil.lineTo(218, 120);
-    pencil.lineTo(216, 120);
-    pencil.fill();
+    PENCIL.beginPath();
+    PENCIL.moveTo(188, 72);
+    PENCIL.lineTo(190, 72);
+    PENCIL.lineTo(218, 120);
+    PENCIL.lineTo(216, 120);
+    PENCIL.fill();
   },
   drawLeftArm: function() {
-    pencil.beginPath();
-    pencil.moveTo(190, 72);
-    pencil.lineTo(188, 72);
-    pencil.lineTo(158, 120);
-    pencil.lineTo(160, 120);
-    pencil.fill();
+    PENCIL.beginPath();
+    PENCIL.moveTo(190, 72);
+    PENCIL.lineTo(188, 72);
+    PENCIL.lineTo(158, 120);
+    PENCIL.lineTo(160, 120);
+    PENCIL.fill();
   },
   drawRightLeg: function() {
-    pencil.beginPath();
-    pencil.moveTo(188, 142);
-    pencil.lineTo(190, 142);
-    pencil.lineTo(200, 170);
-    pencil.lineTo(198, 170);
-    pencil.fill();
+    PENCIL.beginPath();
+    PENCIL.moveTo(188, 142);
+    PENCIL.lineTo(190, 142);
+    PENCIL.lineTo(200, 170);
+    PENCIL.lineTo(198, 170);
+    PENCIL.fill();
   },
   drawLeftLeg: function() {
-    pencil.beginPath();
-    pencil.moveTo(190, 142);
-    pencil.lineTo(188, 142);
-    pencil.lineTo(178, 170);
-    pencil.lineTo(180, 170);
-    pencil.fill();
+    PENCIL.beginPath();
+    PENCIL.moveTo(190, 142);
+    PENCIL.lineTo(188, 142);
+    PENCIL.lineTo(178, 170);
+    PENCIL.lineTo(180, 170);
+    PENCIL.fill();
   },
   drawDeadFace: function() {
     drawEyes();
     drawMouth();
   },
 };
+
+const DRAW_PARTS_FUNCTIONS = Object.values(DRAW_PARTS);
+for (let index = 0; index < DRAW_PARTS_FUNCTIONS.length; index++) {
+  DRAW_PARTS_FUNCTIONS[index]();
+}
 
 export default DRAW_PARTS;

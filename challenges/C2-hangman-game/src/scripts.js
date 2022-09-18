@@ -1,4 +1,5 @@
-//const
+import DRAW_PARTS from "./modules/DrawGallows.mjs";
+
 const container = document.getElementById("alphabetButtons");
 var answerDisplay = document.getElementById("hold");
 var answer = "";
@@ -10,8 +11,8 @@ const containerHint = document.getElementById("clue");
 const buttonHint = document.getElementById("hint");
 const buttonReset = document.getElementById("reset");
 const livesDisplay = document.getElementById("mylives");
-var myStickman = document.getElementById("stickman");
-var context = myStickman.getContext("2d");
+const GALLOWS_CANVAS = document.getElementById("gallows");
+const PENCIL = GALLOWS_CANVAS.getContext("2d");
 
 //generate alphabet button
 function generateButton() {
@@ -129,11 +130,10 @@ buttonHint.addEventListener("click", showHint);
 function init() {
   answer = "";
   hint = "";
-  life = 10;
+  life = 8;
   wordDisplay = [];
   winningCheck = "";
-  context.clearRect(0, 0, 400, 400);
-  canvas();
+  PENCIL.clearRect(0, 0, 400, 400);
   containerHint.innerHTML = `Clue -`;
   livesDisplay.innerHTML = `You have ${life} lives!`;
   setAnswer();
@@ -186,8 +186,6 @@ function guess(event) {
       return;
     }
     console.log(wordDisplay);
-    //console.log(counter);
-    //console.log(life);
     if (answer === winningCheck) {
       livesDisplay.innerHTML = `YOU WIN!`;
       return;
@@ -202,73 +200,13 @@ function animate() {
   drawArray[life]();
 }
 
-function canvas() {
-  myStickman = document.getElementById("stickman");
-  context = myStickman.getContext("2d");
-  context.beginPath();
-  context.strokeStyle = "#fff";
-  context.lineWidth = 2;
-}
-
-function head() {
-  myStickman = document.getElementById("stickman");
-  context = myStickman.getContext("2d");
-  context.beginPath();
-  context.arc(60, 25, 10, 0, Math.PI * 2, true);
-  context.stroke();
-}
-
-function draw($pathFromx, $pathFromy, $pathTox, $pathToy) {
-  context.moveTo($pathFromx, $pathFromy);
-  context.lineTo($pathTox, $pathToy);
-  context.stroke();
-}
-
-function frame1() {
-  draw(0, 150, 150, 150);
-}
-
-function frame2() {
-  draw(10, 0, 10, 600);
-}
-
-function frame3() {
-  draw(0, 5, 70, 5);
-}
-
-function frame4() {
-  draw(60, 5, 60, 15);
-}
-
-function torso() {
-  draw(60, 36, 60, 70);
-}
-
-function rightArm() {
-  draw(60, 46, 100, 50);
-}
-
-function leftArm() {
-  draw(60, 46, 20, 50);
-}
-
-function rightLeg() {
-  draw(60, 70, 100, 100);
-}
-
-function leftLeg() {
-  draw(60, 70, 20, 100);
-}
-
 var drawArray = [
-  rightLeg,
-  leftLeg,
-  rightArm,
-  leftArm,
-  torso,
-  head,
-  frame4,
-  frame3,
-  frame2,
-  frame1
+  DRAW_PARTS.drawDeadFace,
+  DRAW_PARTS.drawLeftLeg,
+  DRAW_PARTS.drawRightLeg,
+  DRAW_PARTS.drawLeftArm,
+  DRAW_PARTS.drawRightArm,
+  DRAW_PARTS.drawBody,
+  DRAW_PARTS.drawHead,
+  DRAW_PARTS.drawGallowsStructure,
 ];
