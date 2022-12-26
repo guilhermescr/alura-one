@@ -1,0 +1,15 @@
+.menu-link {
+  color: #808080;
+
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.menu-link:hover {
+  text-decoration: underline;
+}
+
+.menu-link.active {
+  color: #333333;
+  font-weight: bold;
+}
