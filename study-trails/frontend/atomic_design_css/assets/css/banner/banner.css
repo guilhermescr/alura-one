@@ -1,0 +1,6 @@
+.banner {
+  background: #fff url('../../img/banner.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: calc(100vh - 72px);
+  position: relative;
+}

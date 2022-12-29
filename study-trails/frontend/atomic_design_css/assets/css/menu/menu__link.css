@@ -1,15 +1,15 @@
-.menu-link {
+.menu__link {
   color: #808080;
 
   text-decoration: none;
   text-transform: lowercase;
 }
 
-.menu-link:hover {
+.menu__link:hover {
   text-decoration: underline;
 }
 
-.menu-link.active {
+.menu__link.active {
   color: #333333;
   font-weight: bold;
 }

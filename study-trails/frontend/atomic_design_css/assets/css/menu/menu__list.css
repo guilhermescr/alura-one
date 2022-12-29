@@ -1,0 +1,10 @@
+.menu__list {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 550px) {
+  .menu__list {
+    display: none;
+  }
+}
