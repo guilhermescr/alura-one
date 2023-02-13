@@ -1,0 +1,11 @@
+.people {
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+}
+
+@media (max-width: 650px) {
+  .people {
+    flex-direction: column;
+  }
+}

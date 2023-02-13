@@ -2,9 +2,6 @@
   background-color: #fdfdfd;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  margin-bottom: 5rem;
-  margin-right: 5rem;
-  max-height: 400px;
-  width: calc(25% - 5rem);
+  height: 500px;
+  width: 220px;
 }
